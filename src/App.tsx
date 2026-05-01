@@ -9,6 +9,12 @@ import { results, fallbackResult, shinyPets, petKeys } from './data';
 import { recordPet, getShinyRareRate, loadHistory } from './storage';
 import type { QuizResult, Screen } from './types';
 
+/** Multiplier applied to each pet's data-defined `shinyRate` at roll time.
+ *  Per-pet rates stay as relative-rarity weights (so rare pets stay rarer);
+ *  this knob controls overall shiny frequency. ~4× pushes the average from
+ *  ~9% to ~36%, landing total shiny incidence near the 20–30% target. */
+const SHINY_BOOST = 4;
+
 export default function App() {
   const [screen, setScreen] = useState<Screen>('intro');
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -40,7 +46,7 @@ export default function App() {
   const submitQuiz = useCallback(() => {
     const res = computeResult(answers);
     const shinyConfig = shinyPets[res.best.pet];
-    if (shinyConfig && Math.random() < shinyConfig.shinyRate) {
+    if (shinyConfig && Math.random() < shinyConfig.shinyRate * SHINY_BOOST) {
       res.isShiny = true;
       res.shinyAwaken = res.best.pet;
       res.shinyScore = shinyConfig.shinyRate;
@@ -107,7 +113,7 @@ export default function App() {
         levels[d] = levelOf(s);
       });
       const shinyConfig = shinyPets[petKey];
-      const isShiny = forceShiny || (shinyConfig && Math.random() < shinyConfig.shinyRate);
+      const isShiny = forceShiny || (shinyConfig && Math.random() < shinyConfig.shinyRate * SHINY_BOOST);
       const res: QuizResult = {
         dimScores,
         levels,

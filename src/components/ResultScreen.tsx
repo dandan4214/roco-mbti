@@ -125,7 +125,13 @@ export default function ResultScreen({
     }
     const mainPet = results[result.best.pet];
     if (sec && sec.similarity > 0) {
-      return `你的灵魂成分是 ${result.best.similarity}%「${mainPet.name}」+ ${sec.similarity}%「${sec.pet}」的混合体`;
+      // Normalize the two top similarities into a 100% partition so the
+      // headline reads as a real "X% + Y% = 100%" soul-composition split,
+      // instead of two independent match scores that confuse readers.
+      const total = result.best.similarity + sec.similarity;
+      const mainPct = Math.round((result.best.similarity / total) * 100);
+      const secPct = 100 - mainPct;
+      return `你的灵魂成分是 ${mainPct}%「${mainPet.name}」+ ${secPct}%「${sec.pet}」的混合体`;
     }
     return `你的灵魂纯度高达 ${result.best.similarity}%——是「${mainPet.name}」本灵`;
   };
