@@ -624,7 +624,7 @@ export default function PosterCanvas({
 
       ctx.fillStyle = t.txtSub;
       ctx.font = '13px -apple-system, PingFang SC, sans-serif';
-      ctx.fillText('温泉蛋出品', brandRightX, brandY + 50);
+      ctx.fillText('抖、🍠、啊B：温泉蛋不emo', brandRightX, brandY + 50);
 
       // Serial number
       ctx.fillStyle = t.txtAccent;

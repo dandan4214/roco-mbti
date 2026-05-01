@@ -415,7 +415,7 @@ export default function ResultScreen({
         </div>
       </div>
 
-      <div className="footer-brand"><IconEgg size={14} /> 洛克王国孵蛋查询工具 · 温泉蛋出品</div>
+      <div className="footer-brand"><IconEgg size={14} /> 洛克王国孵蛋查询工具 · 抖、🍠、啊B：温泉蛋不emo</div>
 
       <ShareCard
         open={shareOpen}
