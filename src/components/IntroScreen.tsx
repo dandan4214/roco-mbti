@@ -43,67 +43,69 @@ export default function IntroScreen({ onStart, onQuickTest }: Props) {
         <div className="intro-tip">异色稀有觉醒 · 深度性格解读 · 隐藏存档</div>
       </div>
 
-      <div className="debug-panel">
-        <div className="debug-header" onClick={() => setDebugOpen((v) => !v)}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <IconCode size={14} /> 开发者调试面板
-          </span>
-          <span style={{ fontSize: 10 }}>点击展开/折叠</span>
-        </div>
-        {debugOpen && (
-          <div>
-            <div className="debug-section">原色精灵（直接跳转结果）</div>
-            <div className="debug-btns">
-              {petKeys.map((key) => (
+      {import.meta.env.DEV && (
+        <div className="debug-panel">
+          <div className="debug-header" onClick={() => setDebugOpen((v) => !v)}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              <IconCode size={14} /> 开发者调试面板
+            </span>
+            <span style={{ fontSize: 10 }}>点击展开/折叠</span>
+          </div>
+          {debugOpen && (
+            <div>
+              <div className="debug-section">原色精灵（直接跳转结果）</div>
+              <div className="debug-btns">
+                {petKeys.map((key) => (
+                  <button
+                    key={key}
+                    className="btn-secondary debug-btn"
+                    onClick={() => onQuickTest(key, false)}
+                  >
+                    {key}
+                  </button>
+                ))}
+              </div>
+              <div className="debug-section" style={{ marginTop: 12 }}>异色精灵（强制 shiny）</div>
+              <div className="debug-btns">
+                {shinyKeys.map((key) => (
+                  <button
+                    key={`shiny-${key}`}
+                    className="btn-secondary debug-btn"
+                    style={{
+                      borderColor: '#e8b86d',
+                      color: '#c28a2c',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 4,
+                    }}
+                    onClick={() => onQuickTest(key, true)}
+                  >
+                    <IconSparkle size={12} />
+                    {key}
+                  </button>
+                ))}
+              </div>
+              <div className="debug-section" style={{ marginTop: 12 }}>兜底（强制 fallback）</div>
+              <div className="debug-btns">
                 <button
-                  key={key}
-                  className="btn-secondary debug-btn"
-                  onClick={() => onQuickTest(key, false)}
-                >
-                  {key}
-                </button>
-              ))}
-            </div>
-            <div className="debug-section" style={{ marginTop: 12 }}>异色精灵（强制 shiny）</div>
-            <div className="debug-btns">
-              {shinyKeys.map((key) => (
-                <button
-                  key={`shiny-${key}`}
                   className="btn-secondary debug-btn"
                   style={{
-                    borderColor: '#e8b86d',
-                    color: '#c28a2c',
+                    borderColor: '#8c6ab0',
+                    color: '#6a4a8e',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 4,
                   }}
-                  onClick={() => onQuickTest(key, true)}
+                  onClick={() => onQuickTest('果冻', false)}
                 >
-                  <IconSparkle size={12} />
-                  {key}
+                  <IconQuestion size={12} />
+                  果冻
                 </button>
-              ))}
+              </div>
             </div>
-            <div className="debug-section" style={{ marginTop: 12 }}>兜底（强制 fallback）</div>
-            <div className="debug-btns">
-              <button
-                className="btn-secondary debug-btn"
-                style={{
-                  borderColor: '#8c6ab0',
-                  color: '#6a4a8e',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 4,
-                }}
-                onClick={() => onQuickTest('果冻', false)}
-              >
-                <IconQuestion size={12} />
-                果冻
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
