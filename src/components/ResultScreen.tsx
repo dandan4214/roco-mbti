@@ -112,6 +112,14 @@ export default function ResultScreen({
   const sec = result.ranked[1];
   const hiddenPet = sec && sec.similarity > 0 ? findPetInfo(sec.pet) : null;
 
+  // Normalized 100% partition between top-1 and top-2 — keeps the headline
+  // ("X% A + Y% B") and the 隐藏副性格 box ("相似度 Y%") on the same scale.
+  const mainNormalizedPct =
+    sec && sec.similarity > 0
+      ? Math.round((result.best.similarity / (result.best.similarity + sec.similarity)) * 100)
+      : 100;
+  const secNormalizedPct = 100 - mainNormalizedPct;
+
   const matchText = result.isFallback
     ? '精灵图鉴查无此蛋'
     : isShiny
@@ -128,13 +136,7 @@ export default function ResultScreen({
     }
     const mainPet = results[result.best.pet];
     if (sec && sec.similarity > 0) {
-      // Normalize the two top similarities into a 100% partition so the
-      // headline reads as a real "X% + Y% = 100%" soul-composition split,
-      // instead of two independent match scores that confuse readers.
-      const total = result.best.similarity + sec.similarity;
-      const mainPct = Math.round((result.best.similarity / total) * 100);
-      const secPct = 100 - mainPct;
-      return `你的灵魂成分是 ${mainPct}%「${mainPet.name}」+ ${secPct}%「${sec.pet}」的混合体`;
+      return `你的灵魂成分是 ${mainNormalizedPct}%「${mainPet.name}」+ ${secNormalizedPct}%「${sec.pet}」的混合体`;
     }
     return `你的灵魂纯度高达 ${result.best.similarity}%——是「${mainPet.name}」本灵`;
   };
@@ -348,7 +350,7 @@ export default function ResultScreen({
                 )}
                 <div>
                   <div className="hidden-name">{sec!.pet}</div>
-                  <div className="hidden-sim">相似度 {sec!.similarity}%</div>
+                  <div className="hidden-sim">相似度 {secNormalizedPct}%</div>
                 </div>
               </div>
               {sec!.similarity === result.best.similarity ? (
