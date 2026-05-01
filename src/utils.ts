@@ -15,6 +15,15 @@ import type { QuizResult } from './types';
 export const SHARE_URL =
   typeof window !== 'undefined' ? window.location.origin + '/' : 'https://mbti.dandantv.site/';
 
+/** Fire a Google Analytics 4 event. Safe to call before gtag has loaded —
+ *  the snippet in index.html buffers via dataLayer, so events queued during
+ *  the initial async load are not lost. No-op outside the browser. */
+export function track(name: string, params?: Record<string, unknown>) {
+  if (typeof window === 'undefined') return;
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  w.gtag?.('event', name, params || {});
+}
+
 export function levelOf(s: number): string {
   /* Calibrated thresholds based on actual score distribution of 12 questions.
      Each option awards 1–3 points per dimension; 12 questions → range ~12–36.

@@ -4,7 +4,7 @@ import IntroScreen from './components/IntroScreen';
 import QuizScreen from './components/QuizScreen';
 import ResultScreen from './components/ResultScreen';
 import PetCollection from './components/PetCollection';
-import { computeResult, levelOf, SHARE_URL } from './utils';
+import { computeResult, levelOf, SHARE_URL, track } from './utils';
 import { results, fallbackResult, shinyPets, petKeys } from './data';
 import { recordPet, getShinyRareRate, loadHistory } from './storage';
 import type { QuizResult, Screen } from './types';
@@ -33,6 +33,7 @@ export default function App() {
   }, []);
 
   const startQuiz = useCallback(() => {
+    track('quiz_start');
     setAnswers({});
     setResult(null);
     setScreen('quiz');
@@ -61,6 +62,13 @@ export default function App() {
       ? fallbackResult.name
       : results[res.best.pet].name;
     recordPet(petName, res.isShiny);
+
+    track('quiz_complete', {
+      pet_name: petName,
+      is_shiny: res.isShiny,
+      is_fallback: res.isFallback,
+      similarity: res.best.similarity,
+    });
   }, [answers]);
 
   const quickTest = useCallback(
@@ -147,7 +155,11 @@ export default function App() {
       `${r.tags.slice(0, 3).join(' · ')}\n` +
       `${r.intro}\n\n` +
       `快来测测你是哪种精灵 → ${SHARE_URL}`;
-    if (navigator.share) {
+    // typeof check (rather than `navigator.share ?`) — TS lib types `share`
+    // as always-defined, but at runtime it's undefined on older browsers.
+    const hasNativeShare = typeof navigator.share === 'function';
+    track('share_click', { channel: hasNativeShare ? 'native' : 'copy' });
+    if (hasNativeShare) {
       navigator.share({ title: 'RocoTI 性格测试', text });
     } else {
       navigator.clipboard.writeText(text).then(() => alert('结果已复制，去分享吧！'));

@@ -14,6 +14,7 @@ import {
   getBreedPhilosophy,
   getSocialMode,
   SHARE_URL,
+  track,
 } from '../utils';
 import type { QuizResult } from '../types';
 import RadarChart from './RadarChart';
@@ -83,6 +84,7 @@ export default function ResultScreen({
   }, [isShiny, r.shinyImg]);
 
   const shareToWeibo = () => {
+    track('share_click', { channel: 'weibo' });
     const text = `我在洛克王国性格测试测出了「${r.name}」！快来测测你是哪种精灵 →`;
     const url = SHARE_URL;
     window.open(
@@ -94,6 +96,7 @@ export default function ResultScreen({
   };
 
   const shareToWechat = () => {
+    track('share_click', { channel: 'wechat' });
     alert('请截图分享到朋友圈，或点击右上角「···」发送给朋友');
   };
 
@@ -392,7 +395,7 @@ export default function ResultScreen({
           <button className="share-btn wb" onClick={shareToWeibo}>
             <IconMegaphone size={16} /> 微博分享
           </button>
-          <button className="share-btn" onClick={() => setPosterOpen(true)}>
+          <button className="share-btn" onClick={() => { track('poster_open'); setPosterOpen(true); }}>
             <IconImage size={16} /> 生成海报
           </button>
         </div>
@@ -400,13 +403,13 @@ export default function ResultScreen({
 
       <div className="result-actions">
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          <button className="btn-secondary" onClick={onRestart}>
+          <button className="btn-secondary" onClick={() => { track('restart_click'); onRestart(); }}>
             重新测试
           </button>
           <button className="btn-primary" onClick={onShare}>
             分享结果
           </button>
-          <button className="btn-secondary" onClick={onViewCollection}>
+          <button className="btn-secondary" onClick={() => { track('collection_view'); onViewCollection(); }}>
             <IconTrophy size={14} /> 查看图鉴
           </button>
         </div>
