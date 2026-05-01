@@ -626,6 +626,10 @@ export default function PosterCanvas({
       ctx.font = '13px -apple-system, PingFang SC, sans-serif';
       ctx.fillText('全平台同号：温泉蛋不emo', brandRightX, brandY + 50);
 
+      ctx.fillStyle = t.txtAccent;
+      ctx.font = 'bold 12px -apple-system, PingFang SC, sans-serif';
+      ctx.fillText('制作不易，求关注', brandRightX, brandY + 68);
+
       // Serial number
       ctx.fillStyle = t.txtAccent;
       ctx.font = 'bold 14px -apple-system, sans-serif';
