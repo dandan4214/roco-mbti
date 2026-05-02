@@ -670,7 +670,7 @@ export default function PosterCanvas({
   const handleDownload = () => {
     if (!dataUrl) return;
     const link = document.createElement('a');
-    link.download = `RocoTI_${name}.png`;
+    link.download = 'RocoTI.png';
     link.href = dataUrl;
     link.click();
   };
@@ -679,13 +679,11 @@ export default function PosterCanvas({
     if (!dataUrl) return;
     try {
       const blob = await (await fetch(dataUrl)).blob();
-      const file = new File([blob], `RocoTI_${name}.png`, { type: 'image/png' });
+      const file = new File([blob], 'RocoTI.png', { type: 'image/png' });
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: `RocoTI · ${name}`,
-          text: `我在洛克王国性格测试测出了「${name}」！`,
-        });
+        // Share image only (no title/text) so WeChat treats it as a photo
+        // rather than a file attachment.
+        await navigator.share({ files: [file] });
       } else {
         handleDownload();
       }

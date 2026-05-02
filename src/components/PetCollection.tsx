@@ -7,14 +7,8 @@ interface Props {
   onViewPet: (petKey: string) => void;
 }
 
-// Stable serial number per pet (matches poster format)
-function petSerial(key: string): string {
-  let h = 0;
-  for (let i = 0; i < key.length; i++) {
-    h = (h * 31 + key.charCodeAt(i)) | 0;
-  }
-  const n = (Math.abs(h) % 199) + 1;
-  return String(n).padStart(3, '0');
+function petSerial(index: number): string {
+  return String(index + 1).padStart(3, '0');
 }
 
 export default function PetCollection({ onBack, onViewPet }: Props) {
@@ -47,7 +41,7 @@ export default function PetCollection({ onBack, onViewPet }: Props) {
           }}
         >
           <IconTrophy size={18} />
-          性格图鉴 · {unlockedCount} / {petKeys.length}
+          精灵图鉴 · {unlockedCount} / {petKeys.length}
         </div>
         <button
           className="btn-secondary"
@@ -59,7 +53,7 @@ export default function PetCollection({ onBack, onViewPet }: Props) {
       </div>
 
       <div className="tcg-grid">
-        {unlocked.map(({ key, pet, unlocked, shinyUnlocked, art }) => (
+        {unlocked.map(({ key, pet, unlocked, shinyUnlocked, art }, idx) => (
           <div
             key={key}
             className={`tcg-card ${unlocked ? (shinyUnlocked ? 'tcg-shiny' : 'tcg-normal') : 'tcg-locked'}`}
@@ -68,7 +62,7 @@ export default function PetCollection({ onBack, onViewPet }: Props) {
           >
             <div className="tcg-card-frame">
               <div className="tcg-card-inner">
-                <div className="tcg-card-serial">№ {petSerial(key)}</div>
+                <div className="tcg-card-serial">№ {petSerial(idx)}</div>
                 <div className="tcg-card-type">{unlocked ? pet.type.slice(0, 2) : '??'}</div>
 
                 <div className="tcg-card-art">
@@ -86,7 +80,6 @@ export default function PetCollection({ onBack, onViewPet }: Props) {
                 </div>
                 <div className="tcg-card-meta">
                   {unlocked ? pet.type : '未解锁'}
-                  {unlocked && pet.mbti ? <> · <span className="mono">{pet.mbti}</span></> : null}
                 </div>
 
                 <div className="tcg-corner tl" />
@@ -102,7 +95,7 @@ export default function PetCollection({ onBack, onViewPet }: Props) {
         <div className="tcg-card tcg-mystery" aria-label="未知存档" title="存档未知 · 系统拒绝读取">
           <div className="tcg-card-frame">
             <div className="tcg-card-inner">
-              <div className="tcg-card-serial">№ ???</div>
+              <div className="tcg-card-serial">№ 000</div>
               <div className="tcg-card-type">??</div>
 
               <div className="tcg-card-art">

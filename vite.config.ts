@@ -10,6 +10,13 @@ export default defineConfig({
   },
   build: {
     target: 'es2018',
-    sourcemap: false
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
+    },
   }
 });

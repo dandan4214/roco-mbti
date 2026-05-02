@@ -25,7 +25,7 @@ export default function IntroScreen({ onStart, onQuickTest }: Props) {
         <div className="hero-bg-pets">
           {bgPets.map((src, i) => (
             <div key={i} className="bg-pet">
-              <img src={src} alt="" />
+              <img src={src} alt="" loading="lazy" decoding="async" />
             </div>
           ))}
         </div>

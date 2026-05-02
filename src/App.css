@@ -825,48 +825,6 @@ button:disabled {
   color: var(--muted);
 }
 
-.share-card-preview {
-  background: linear-gradient(180deg, #f8fff8, #f2f7f3);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 16px;
-  border: 1px solid var(--line);
-}
-
-.share-card-preview .sc-name {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--accent-strong);
-  margin-bottom: 4px;
-}
-
-.share-card-preview .sc-type {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.share-card-preview .sc-img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  margin: 0 auto 12px;
-  display: block;
-}
-
-.share-card-preview .sc-quote {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.6;
-  font-style: italic;
-}
-
-.share-card-tip {
-  font-size: 12px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
 .loading-screen {
   position: fixed;
   inset: 0;

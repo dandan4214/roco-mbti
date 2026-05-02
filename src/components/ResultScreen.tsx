@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense, useMemo } from 'react';
 import {
   results,
   shinyPets,
@@ -18,8 +18,7 @@ import {
 } from '../utils';
 import type { QuizResult } from '../types';
 import RadarChart from './RadarChart';
-import ShareCard from './ShareCard';
-import PosterCanvas from './PosterCanvas';
+const PosterCanvas = lazy(() => import('./PosterCanvas'));
 import {
   IconSparkle,
   IconTrophy,
@@ -54,7 +53,6 @@ export default function ResultScreen({
   rankInfo,
 }: Props) {
   const [shinyShow, setShinyShow] = useState(false);
-  const [shareOpen, setShareOpen] = useState(false);
   const [posterOpen, setPosterOpen] = useState(false);
   const [revealing, setRevealing] = useState(true);
   const [revealExiting, setRevealExiting] = useState(false);
@@ -100,15 +98,6 @@ export default function ResultScreen({
     alert('请截图分享到朋友圈，或点击右上角「···」发送给朋友');
   };
 
-  const copyShareText = () => {
-    const text =
-      `我在【洛克王国精灵性格测试】测出了「${r.name}」\n` +
-      `${r.tags.slice(0, 3).join(' · ')}\n` +
-      `${r.intro}\n\n` +
-      `快来测测你是哪种精灵 → ${SHARE_URL}`;
-    navigator.clipboard.writeText(text).then(() => alert('文案已复制！去分享吧'));
-  };
-
   const sec = result.ranked[1];
   const hiddenPet = sec && sec.similarity > 0 ? findPetInfo(sec.pet) : null;
 
@@ -140,6 +129,11 @@ export default function ResultScreen({
     }
     return `你的灵魂纯度高达 ${result.best.similarity}%——是「${mainPet.name}」本灵`;
   };
+
+  const roleDesc = useMemo(() => getRoleDesc(result.dimScores, r.name), [result.dimScores, r.name]);
+  const battleStyle = useMemo(() => getBattleStyle(result.dimScores, r.name), [result.dimScores, r.name]);
+  const breedPhilosophy = useMemo(() => getBreedPhilosophy(result.dimScores, r.name), [result.dimScores, r.name]);
+  const socialMode = useMemo(() => getSocialMode(result.dimScores, r.name), [result.dimScores, r.name]);
 
   if (revealing) {
     const revealMain = result.isFallback
@@ -320,22 +314,26 @@ export default function ResultScreen({
 
         <div className="role-box">
           <h3><IconCastle size={16} /> 你的王国定位</h3>
-          <div dangerouslySetInnerHTML={{ __html: getRoleDesc(result.dimScores, r.name) }} />
+          <div className="role-title">{roleDesc.t}</div>
+          <p className="role-desc">{roleDesc.d}</p>
         </div>
 
         <div className="battle-box">
           <h3><IconSwords size={16} /> 你的战斗流派</h3>
-          <div dangerouslySetInnerHTML={{ __html: getBattleStyle(result.dimScores, r.name) }} />
+          <div className="battle-title">{battleStyle.t}</div>
+          <p className="battle-desc">{battleStyle.d}</p>
         </div>
 
         <div className="breed-box">
           <h3><IconEgg size={16} /> 你的孵蛋哲学</h3>
-          <div dangerouslySetInnerHTML={{ __html: getBreedPhilosophy(result.dimScores, r.name) }} />
+          <div className="breed-title">{breedPhilosophy.t}</div>
+          <p className="breed-desc">{breedPhilosophy.d}</p>
         </div>
 
         <div className="social-box">
           <h3><IconPeople size={16} /> 你的社交模式</h3>
-          <div dangerouslySetInnerHTML={{ __html: getSocialMode(result.dimScores, r.name) }} />
+          <div className="social-title">{socialMode.t}</div>
+          <p className="social-desc">{socialMode.d}</p>
         </div>
 
         <div className="hidden-box">
@@ -423,17 +421,6 @@ export default function ResultScreen({
         制作不易，求关注
       </div>
 
-      <ShareCard
-        open={shareOpen}
-        onClose={() => setShareOpen(false)}
-        name={r.name}
-        sub={r.tags.slice(0, 3).join(' · ')}
-        img={r.normalImg || r.img}
-        quote={r.intro}
-        onShareWechat={shareToWechat}
-        onCopyText={copyShareText}
-      />
-
       {/* Poster Modal */}
       {posterOpen && (
         <div
@@ -451,17 +438,19 @@ export default function ResultScreen({
             >
               <IconClose size={18} />
             </div>
-            <PosterCanvas
-              name={r.name}
-              sub={r.tags.slice(0, 3).join(' · ')}
-              img={r.normalImg || r.img || ''}
-              quote={r.intro}
-              matchText={matchText}
-              tag={r.type}
-              isShiny={isShiny}
-              isFallback={result.isFallback}
-              rankText={rankInfo.rankText}
-            />
+            <Suspense fallback={<div style={{ textAlign: 'center', padding: 24 }}>海报加载中…</div>}>
+              <PosterCanvas
+                name={r.name}
+                sub={r.tags.slice(0, 3).join(' · ')}
+                img={r.normalImg || r.img || ''}
+                quote={r.intro}
+                matchText={matchText}
+                tag={r.type}
+                isShiny={isShiny}
+                isFallback={result.isFallback}
+                rankText={rankInfo.rankText}
+              />
+            </Suspense>
           </div>
         </div>
       )}

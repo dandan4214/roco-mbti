@@ -163,8 +163,7 @@ export function getRadarSVG(scores: Record<string, number>) {
 
 export function getRoleDesc(scores: Record<string, number>, petName?: string) {
   if (petName && personas[petName]) {
-    const { t, d } = personas[petName].kingdomRole;
-    return `<div class="role-title">${t}</div><p class="role-desc">${d}</p>`;
+    return personas[petName].kingdomRole;
   }
   const srt = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const pair = [srt[0][0], srt[1][0]].sort().join('');
@@ -213,57 +212,100 @@ export function getRoleDesc(scores: Record<string, number>, petName?: string) {
   };
 
   const c = map[pair];
-  if (c) {
-    return `<div class="role-title">${c.t}</div><p class="role-desc">${c.d}</p>`;
-  }
-  return `<div class="role-title">独特存在</div><p class="role-desc">你的性格维度分布比较均衡，没有特别突出的倾向。这意味着你适应力强，能在不同情境中灵活切换角色。你是团队里的「万能拼图」。</p>`;
+  if (c) return c;
+  return {
+    t: '独特存在',
+    d: '你的性格维度分布比较均衡，没有特别突出的倾向。这意味着你适应力强，能在不同情境中灵活切换角色。你是团队里的「万能拼图」。',
+  };
 }
 
 export function getBattleStyle(scores: Record<string, number>, petName?: string) {
   if (petName && personas[petName]) {
-    const { t, d } = personas[petName].battleStyle;
-    return `<div class="battle-title">${t}</div><p class="battle-desc">${d}</p>`;
+    return personas[petName].battleStyle;
   }
   const b = scores.B;
   const m = scores.M;
   // Threshold 24 ≈ midpoint of 12–36 quiz range, aligned with levelOf cutoffs.
-  if (b >= 24 && m >= 24)
-    return `<div class="battle-title">狂战士流</div><p class="battle-desc">正面硬刚，越战越勇。你信奉「最好的防守就是进攻」，情绪越激动战斗力越强。你的战斗就像烈火，席卷一切。</p>`;
-  if (b >= 24 && m < 24)
-    return `<div class="battle-title">刺客流</div><p class="battle-desc">冷静收割，一击必杀。你不喜欢拖泥带水，追求在最短时间内结束战斗。你的每一招都经过精密计算。</p>`;
-  if (b < 24 && m >= 24)
-    return `<div class="battle-title">控场流</div><p class="battle-desc">打乱节奏，干扰心智。你擅长用情绪和心理战术瓦解对手。你的武器不是蛮力，而是让人捉摸不透的变化。</p>`;
-  return `<div class="battle-title">发育流</div><p class="battle-desc">猥琐发育，后期发力。你不急于一时，更愿意在战斗外做好准备。一旦出手，就是雷霆万钧。</p>`;
+  if (b >= 24 && m >= 24) {
+    return {
+      t: '狂战士流',
+      d: '正面硬刚，越战越勇。你信奉「最好的防守就是进攻」，情绪越激动战斗力越强。你的战斗就像烈火，席卷一切。',
+    };
+  }
+  if (b >= 24 && m < 24) {
+    return {
+      t: '刺客流',
+      d: '冷静收割，一击必杀。你不喜欢拖泥带水，追求在最短时间内结束战斗。你的每一招都经过精密计算。',
+    };
+  }
+  if (b < 24 && m >= 24) {
+    return {
+      t: '控场流',
+      d: '打乱节奏，干扰心智。你擅长用情绪和心理战术瓦解对手。你的武器不是蛮力，而是让人捉摸不透的变化。',
+    };
+  }
+  return {
+    t: '发育流',
+    d: '猥琐发育，后期发力。你不急于一时，更愿意在战斗外做好准备。一旦出手，就是雷霆万钧。',
+  };
 }
 
 export function getBreedPhilosophy(scores: Record<string, number>, petName?: string) {
   if (petName && personas[petName]) {
-    const { t, d } = personas[petName].breedPhilosophy;
-    return `<div class="breed-title">${t}</div><p class="breed-desc">${d}</p>`;
+    return personas[petName].breedPhilosophy;
   }
   const w = scores.W;
   const m = scores.M;
-  if (w >= 24 && m >= 24)
-    return `<div class="breed-title">完美主义者</div><p class="breed-desc">不孵出最佳性格绝不罢休。你会查攻略、算概率、反复尝试，直到满意为止。你的孵蛋过程本身就是一场修行。</p>`;
-  if (w >= 24 && m < 24)
-    return `<div class="breed-title">佛系随缘党</div><p class="breed-desc">能孵出来就行，不强求。你相信「缘分到了自然有」，不会为了一个性格熬夜通宵。游戏嘛，开心最重要。</p>`;
-  if (w < 24 && m >= 24)
-    return `<div class="breed-title">速成急躁党</div><p class="breed-desc">孵几次不出就换目标。你的耐心有限，更享受「立刻有结果」的快感。你会选择效率最高的路径，哪怕不是最优解。</p>`;
-  return `<div class="breed-title">实用主义党</div><p class="breed-desc">不在乎性格，能打架就行。你更关注实战表现，对「性格」「天赋」这些细枝末节不感兴趣。强不强，打一架就知道了。</p>`;
+  if (w >= 24 && m >= 24) {
+    return {
+      t: '完美主义者',
+      d: '不孵出最佳性格绝不罢休。你会查攻略、算概率、反复尝试，直到满意为止。你的孵蛋过程本身就是一场修行。',
+    };
+  }
+  if (w >= 24 && m < 24) {
+    return {
+      t: '佛系随缘党',
+      d: '能孵出来就行，不强求。你相信「缘分到了自然有」，不会为了一个性格熬夜通宵。游戏嘛，开心最重要。',
+    };
+  }
+  if (w < 24 && m >= 24) {
+    return {
+      t: '速成急躁党',
+      d: '孵几次不出就换目标。你的耐心有限，更享受「立刻有结果」的快感。你会选择效率最高的路径，哪怕不是最优解。',
+    };
+  }
+  return {
+    t: '实用主义党',
+    d: '不在乎性格，能打架就行。你更关注实战表现，对「性格」「天赋」这些细枝末节不感兴趣。强不强，打一架就知道了。',
+  };
 }
 
 export function getSocialMode(scores: Record<string, number>, petName?: string) {
   if (petName && personas[petName]) {
-    const { t, d } = personas[petName].socialMode;
-    return `<div class="social-title">${t}</div><p class="social-desc">${d}</p>`;
+    return personas[petName].socialMode;
   }
   const e = scores.E;
   const s = scores.S;
-  if (e >= 24 && s >= 24)
-    return `<div class="social-title">派对动物</div><p class="social-desc">你走到哪里都是焦点。你喜欢热闹，享受被人围绕的感觉。一个人玩游戏？那不如直接下线。</p>`;
-  if (e >= 24 && s < 24)
-    return `<div class="social-title">独狼行动派</div><p class="social-desc">你能量充沛，但更喜欢一个人行动。你不是不合群，只是你觉得一个人效率更高。你享受独处的自由。</p>`;
-  if (e < 24 && s >= 24)
-    return `<div class="social-title">安静倾听者</div><p class="social-desc">你不喜欢成为焦点，但你是最好的听众。你善于在人群中观察，在适当的时候给出精准的判断。</p>`;
-  return `<div class="social-title">隐士模式</div><p class="social-desc">社交对你来说是耗电项。你更喜欢和少数几个知心朋友深度交流，而不是在大群里热闹。你的朋友圈小而精。</p>`;
+  if (e >= 24 && s >= 24) {
+    return {
+      t: '派对动物',
+      d: '你走到哪里都是焦点。你喜欢热闹，享受被人围绕的感觉。一个人玩游戏？那不如直接下线。',
+    };
+  }
+  if (e >= 24 && s < 24) {
+    return {
+      t: '独狼行动派',
+      d: '你能量充沛，但更喜欢一个人行动。你不是不合群，只是你觉得一个人效率更高。你享受独处的自由。',
+    };
+  }
+  if (e < 24 && s >= 24) {
+    return {
+      t: '安静倾听者',
+      d: '你不喜欢成为焦点，但你是最好的听众。你善于在人群中观察，在适当的时候给出精准的判断。',
+    };
+  }
+  return {
+    t: '隐士模式',
+    d: '社交对你来说是耗电项。你更喜欢和少数几个知心朋友深度交流，而不是在大群里热闹。你的朋友圈小而精。',
+  };
 }
