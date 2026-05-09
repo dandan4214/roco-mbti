@@ -1,0 +1,715 @@
+{
+  "completed": [
+    "0.35,0.1,",
+    "0.05,0.1,",
+    "0.35,0.15,",
+    "0.05,0.15,",
+    "0.35,0.2,",
+    "0.05,0.2,",
+    "0.35,0.25,",
+    "0.05,0.25,",
+    "0.35,0.3,",
+    "0.05,0.3,",
+    "0.35,0.35,",
+    "0.05,0.35,",
+    "0.35,0.4,",
+    "0.05,0.4,",
+    "0.35,0.45,",
+    "0.05,0.45,",
+    "0.05,0.5,",
+    "0.35,0.5,",
+    "0.35,0.55,",
+    "0.05,0.55,",
+    "0.35,0.6,",
+    "0.05,0.6,",
+    "0.35,0.65,",
+    "0.05,0.65,",
+    "0.35,0.7,",
+    "0.05,0.7,",
+    "0.05,0.75,",
+    "0.35,0.75,",
+    "0.05,0.8,",
+    "0.35,0.8,",
+    "0.05,0.85,",
+    "0.35,0.85,",
+    "0.05,0.9,",
+    "0.35,0.9,",
+    "0.05,0.95,",
+    "0.35,0.95,",
+    "0.05,1,",
+    "0.35,1,",
+    "0.05,1.05,",
+    "0.35,1.05,",
+    "0.05,1.1,",
+    "0.35,1.1,",
+    "0.05,1.15,",
+    "0.35,1.15,",
+    "0.05,1.2,",
+    "0.35,1.2,",
+    "0.05,1.25,",
+    "0.35,1.25,",
+    "0.05,1.3,",
+    "0.35,1.3,"
+  ],
+  "results": [
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "旋叶虫（金黄的样子）",
+          "species_code": "XuanYeChong",
+          "type_name": "普通, 虫元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 60.83,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3376.webp?sign=b0cc7e885add0f053505f13cc05eac6d&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.15,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.15,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.2,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.2,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.25,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.25,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.3,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.3,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.35,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.35,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.4,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.4,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.45,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.45,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.5,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.5,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.55,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.55,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.6,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.6,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.65,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.65,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.7,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.7,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.75,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.75,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.8,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.8,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.85,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.85,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.9,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.9,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 0.95,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 0.95,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 57.24,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 62.29,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.05,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.05,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 66.94,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.1,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 71.01,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.15,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.15,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 74.21,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.2,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.2,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 1,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 99,
+          "match_probability_text": "99.00%",
+          "fit_score": 76.18,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.25,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.25,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 2,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 81.61,
+          "match_probability_text": "81.61%",
+          "fit_score": 76.62,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        },
+        {
+          "display_name": "海枝枝（碧蓝珊瑚）",
+          "species_code": "HaiZhiZhi",
+          "type_name": "水, 幽元素精灵",
+          "match_probability": 18.39,
+          "match_probability_text": "18.39%",
+          "fit_score": 50.91,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3430.webp?sign=ac3dcee6616ae9efd872ced912657f00&t=69fee4a1"
+        }
+      ]
+    },
+    {
+      "query": {
+        "height_m": 0.05,
+        "weight_kg": 1.3,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 0,
+      "pets": []
+    },
+    {
+      "query": {
+        "height_m": 0.35,
+        "weight_kg": 1.3,
+        "eggType": null,
+        "eggId": null
+      },
+      "ok": true,
+      "matchedCount": 2,
+      "pets": [
+        {
+          "display_name": "咔咔羽毛",
+          "species_code": "KaKaYuMao",
+          "type_name": "翼, 普通元素精灵",
+          "match_probability": 77,
+          "match_probability_text": "77.00%",
+          "fit_score": 75.45,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3175.webp?sign=ce11d9283177a304d3aeebb30a893ee0&t=69fee4a1"
+        },
+        {
+          "display_name": "海枝枝（碧蓝珊瑚）",
+          "species_code": "HaiZhiZhi",
+          "type_name": "水, 幽元素精灵",
+          "match_probability": 23,
+          "match_probability_text": "23.00%",
+          "fit_score": 52.99,
+          "avatar_url": "https://rococdn.gptvip.chat/webp/pets/head/3430.webp?sign=ac3dcee6616ae9efd872ced912657f00&t=69fee4a1"
+        }
+      ]
+    }
+  ],
+  "lastSave": "2026-05-09T06:40:53.721Z"
+}
