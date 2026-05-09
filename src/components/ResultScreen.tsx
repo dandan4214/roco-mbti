@@ -442,7 +442,7 @@ export default function ResultScreen({
               <PosterCanvas
                 name={r.name}
                 sub={r.tags.slice(0, 3).join(' · ')}
-                img={r.normalImg || r.img || ''}
+                img={isShiny ? r.shinyImg || r.img || r.normalImg || '' : r.normalImg || r.img || ''}
                 quote={r.intro}
                 matchText={matchText}
                 tag={r.type}
